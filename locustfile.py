@@ -21,9 +21,9 @@ def open_welcome(l):
     l.client.get("/welcome")
 
 def login(l):
-    response = l.client.post("/login", data={"_token":"RHnkp9SuCzp3XdxW0AAlOfwDMwIPimfmSFqroLCE",
-    "username":"hit","password": "hiten12345"}, headers=headers)
-    # l.client.get("/timeline", headers={response.headers.Cookie})
+    # response = l.client.post("/login", data={"_token":"RHnkp9SuCzp3XdxW0AAlOfwDMwIPimfmSFqroLCE",
+    # "username":"hit","password": "hiten12345"}, headers=headers)
+    l.client.get("/login")
 
 
 
@@ -40,10 +40,11 @@ class UserBehavior(TaskSet):
     def get_competition_name(self):
         open_competition_name(self)
     
-    # @task(3)
-    # def on_run(self):
-    #     login(self)
-    # @task(4)
+    @task(3)
+    def get_login(self):
+        login(self)
+
+    # @task(2)
     # def on_run2(self):
     #     open_welcome(self)
 
